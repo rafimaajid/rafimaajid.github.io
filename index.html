@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Putra Rafi Naufal Maajid | Fullstack & Application Developer</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fafafc;
+            color: #0a0a1a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eef2f0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0f2b3d, #1e5f6e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1f2a3e;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #1e5f6e;
+        }
+
+        .btn-hire {
+            border: 1.5px solid #1e5f6e;
+            background: transparent;
+            padding: 6px 20px;
+            border-radius: 40px;
+            color: #1e5f6e;
+            font-weight: 600;
+        }
+
+        .btn-hire:hover {
+            background: #1e5f6e;
+            color: white;
+        }
+
+        .hero {
+            padding: 80px 0 60px;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 48px;
+        }
+
+        .hero-content {
+            flex: 1.2;
+        }
+
+        .hero-badge {
+            background: #e0f0f0;
+            color: #1e5f6e;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+            color: #0a1927;
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(120deg, #0f2b3d, #1e5f6e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: #4a5562;
+            max-width: 560px;
+            margin: 20px 0 24px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .btn-primary {
+            background: #1e5f6e;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: #0f424e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(30,95,110,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #cbd5e1;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            color: #2d3a4b;
+        }
+
+        .btn-outline:hover {
+            border-color: #1e5f6e;
+            color: #1e5f6e;
+        }
+
+        .hero-image {
+            flex: 0.9;
+            text-align: center;
+            background: #e9f3f0;
+            border-radius: 32% 68% 38% 62% / 58% 44% 56% 42%;
+            padding: 20px;
+        }
+
+        .hero-image i {
+            font-size: 7rem;
+            color: #1e5f6e;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.1rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: #1e5f6e;
+            margin: 12px auto 0;
+            border-radius: 3px;
+        }
+
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            background: white;
+            border-radius: 40px;
+            padding: 48px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            border: 1px solid #eef2f0;
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #334155;
+        }
+
+        .info-highlight {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 28px;
+        }
+
+        .info-card {
+            background: #f8fafc;
+            padding: 16px 20px;
+            border-radius: 28px;
+            flex: 1;
+        }
+
+        .skills-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .skill-block {
+            flex: 1;
+            background: white;
+            border-radius: 32px;
+            padding: 28px;
+            border: 1px solid #eef2f0;
+        }
+
+        .skill-block h3 {
+            margin-bottom: 24px;
+            font-size: 1.4rem;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-badge {
+            background: #eef2f9;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .exp-card {
+            background: white;
+            border-radius: 28px;
+            padding: 24px 28px;
+            border-left: 6px solid #1e5f6e;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .exp-card.current {
+            border-left-color: #e67e22;
+            background: #fffaf5;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            transition: 0.25s;
+            border: 1px solid #eef2f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.08);
+        }
+
+        .project-img {
+            background: linear-gradient(145deg, #d9e9e5, #c0ddd7);
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #1e5f6e;
+        }
+
+        .project-info {
+            padding: 24px;
+        }
+
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0;
+        }
+
+        .tech-tag {
+            background: #eef2f0;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .project-link {
+            margin-top: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e5f6e;
+        }
+
+        .contact-section {
+            background: #0f2b3d;
+            color: white;
+            border-radius: 48px;
+            padding: 48px;
+            text-align: center;
+        }
+
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 28px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            cursor: default;
+        }
+
+        /* Certificate Slider Styles */
+        .cert-slider-section {
+            background: #f7fafc;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .slider-wrapper {
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-color: #1e5f6e #e0e8e5;
+            border-radius: 24px;
+        }
+
+        .slider-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .slider-wrapper::-webkit-scrollbar-track {
+            background: #e0e8e5;
+            border-radius: 10px;
+        }
+
+        .slider-wrapper::-webkit-scrollbar-thumb {
+            background: #1e5f6e;
+            border-radius: 10px;
+        }
+
+        .cert-slider {
+            display: flex;
+            gap: 24px;
+            padding: 20px 8px 30px 8px;
+        }
+
+        .cert-card {
+            flex: 0 0 280px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            border: 1px solid #eef2f0;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.12);
+        }
+
+        .cert-image {
+            height: 200px;
+            background: linear-gradient(145deg, #eef2ff, #e0e8f5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cert-image .cert-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .cert-placeholder i {
+            font-size: 3rem;
+            color: #1e5f6e;
+            margin-bottom: 12px;
+        }
+
+        .cert-placeholder span {
+            font-size: 0.75rem;
+            color: #4a5562;
+        }
+
+        .cert-info {
+            padding: 16px;
+            text-align: center;
+        }
+
+        .cert-info h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #0a1927;
+        }
+
+        .cert-info p {
+            font-size: 0.7rem;
+            color: #1e5f6e;
+            font-weight: 500;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: 1px solid #eef2f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #1e5f6e;
+            font-size: 1.2rem;
+            transition: 0.2s;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .slider-btn:hover {
+            background: #1e5f6e;
+            color: white;
+        }
+
+        .slider-btn-left {
+            left: 0;
+        }
+
+        .slider-btn-right {
+            right: 0;
+        }
+
+        /* Floating WhatsApp Button */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: 0.2s;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.08);
+            background-color: #20b859;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+        }
+
+        footer {
+            background: #0a1927;
+            color: #b0c4c9;
+            padding: 48px 0 32px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 28px;
+        }
+
+        .footer-social a {
+            color: #94a3b8;
+            font-size: 1.4rem;
+            transition: 0.2s;
+        }
+
+        .footer-social a:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.3rem; }
+            .about-grid { padding: 28px; }
+            section { padding: 60px 0; }
+            .nav-links { gap: 16px; }
+            .wa-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.6rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            .slider-container {
+                padding: 0 20px;
+            }
+            .cert-card {
+                flex: 0 0 240px;
+            }
+            .slider-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container nav-container">
+        <div class="logo">PutraRafi<span style="color:#1e5f6e">.</span></div>
+        <div class="nav-links">
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang</a>
+            <a href="#skills">Skill</a>
+            <a href="#experience">Pengalaman</a>
+            <a href="#projects">Proyek</a>
+            <a href="#contact" class="btn-hire">Kontak</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fas fa-code"></i> Fullstack & Application Developer</span>
+                <h1>Putra Rafi <span>Naufal Maajid</span></h1>
+                <p class="hero-desc">Web & Application Developer dengan pengalaman lebih dari 2 tahun dalam pengembangan aplikasi web, desktop, dan mobile. Saat ini berperan IT Support Development di PT Berkah Solusi Mandiri dalam mengembangkan platform industrial automation, aplikasi desktop terintegrasi cloud, serta solusi mobile yang dirancang untuk meningkatkan efisiensi dan produktivitas bisnis.</p>
+                <div class="btn-group">
+                    <a href="#projects" class="btn-primary"><i class="fas fa-folder-open"></i> Lihat Proyek</a>
+                    <a href="#contact" class="btn-outline"><i class="fas fa-paper-plane"></i> Hubungi Saya</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background:#fefefe;">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 style="font-size:1.8rem; margin-bottom:16px;">Tentang <span style="color:#1e5f6e;">Saya</span></h2>
+                    <p>Profesional di bidang pengembangan perangkat lunak dengan pengalaman dalam pengembangan aplikasi web, desktop, dan mobile. Lulusan S1 Sistem Informasi Telkom University Surabaya yang memiliki pengalaman dalam membangun solusi digital untuk kebutuhan enterprise, cloud storage, dan industrial automation.</p>
+                    <p>Saat ini berperan sebagai IT Support Development di PT Berkah Solusi Mandiri (Februari 2026 – sekarang), dengan tanggung jawab mengembangkan website company profile, platform industrial automation, serta aplikasi AddCloud berbasis Desktop dan Android. Sebelumnya memiliki pengalaman magang sebagai Engineering Staff di PT Global Sahabat Otomasi dan terlibat dalam pengembangan proyek Smart Village Merah Putih yang berhasil memperoleh Hak Kekayaan Intelektual (HKI).</p>
+                    <p> Memiliki minat yang kuat pada pengembangan sistem yang scalable, user-friendly, dan berorientasi pada solusi, serta terus mengikuti perkembangan teknologi untuk menciptakan produk digital yang memberikan dampak nyata.</p>
+                    <div class="info-highlight">
+                        <div class="info-card"><i class="fas fa-briefcase" style="color:#1e5f6e;"></i><h4>Berkah Solusi Mandiri</h4><small>Web & App Developer (2026 - skrg)</small></div>
+                        <div class="info-card"><i class="fas fa-trophy"></i><h4>HKI Winner</h4><small>Smart Village Merah Putih</small></div>
+                        <div class="info-card"><i class="fas fa-certificate"></i><h4>Azure & ML Certified</h4><small>Microsoft & Google</small></div>
+                    </div>
+                </div>
+                <div style="flex:1; background:#f8fafc; border-radius: 32px; padding: 28px;">
+                    <h3><i class="fas fa-address-card"></i> Detail Kontak</h3>
+                    <div style="margin-top: 20px;"><i class="fas fa-envelope"></i> putramaajid93@gmail.com</div>
+                    <div style="margin-top: 12px;"><i class="fab fa-whatsapp"></i> 0811-9642-003</div>
+                    <div style="margin-top: 12px;"><i class="fab fa-github"></i> github.com/rafimaajid</div>
+                    <div style="margin-top: 12px;"><i class="fab fa-linkedin"></i> Putra Rafi Naufal Maajid</div>
+                    <div style="margin-top: 12px;"><i class="fab fa-instagram"></i> @putra_maajid</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Keahlian & Teknologi</h2>
+            <div class="skills-wrapper">
+                <div class="skill-block"><h3><i class="fas fa-code"></i> Web & Programming</h3><div class="skill-items"><span class="skill-badge">PHP/Laravel</span><span class="skill-badge">JavaScript</span><span class="skill-badge">React Native</span><span class="skill-badge">Tailwind CSS</span><span class="skill-badge">MySQL</span><span class="skill-badge">Python</span><span class="skill-badge">REST API</span></div></div>
+                <div class="skill-block"><h3><i class="fas fa-desktop"></i> Desktop & Mobile</h3><div class="skill-items"><span class="skill-badge">C# / CefSharp</span><span class="skill-badge">Android (Java/Kotlin)</span><span class="skill-badge">WebView & Room DB</span><span class="skill-badge">Foreground Service</span><span class="skill-badge">Picture-in-Picture</span></div></div>
+                <div class="skill-block"><h3><i class="fas fa-chart-line"></i> SEO & Digital</h3><div class="skill-items"><span class="skill-badge">SEO On-page</span><span class="skill-badge">Schema Markup</span><span class="skill-badge">Google Search Console</span><span class="skill-badge">AI Overview Optimization</span><span class="skill-badge">Marketplace Integration</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background:#f7fafc;">
+        <div class="container">
+            <h2 class="section-title">Perjalanan Karir</h2>
+            <div class="timeline">
+                <div class="exp-card current"><h3>🚀 Web & Application Developer – PT Berkah Solusi Mandiri</h3><div style="color:#e67e22; margin:8px 0;"><i class="fas fa-calendar-alt"></i> Februari 2026 – Sekarang</div><p>Mengembangkan dan mengoptimalkan website company profile & industrial automation platform (berkahsolusi.id). Fokus pada branding digital, SEO industri, integrasi konten produk HIKROBOT, serta mobile performance optimization. Mengembangkan AddCloud Desktop (C#/CefSharp) dan AddCloud Android (WebView + DownloadManager + Room DB + Foreground Service). Terlibat dalam strategi digital marketing, AI Overview optimization, dan backlink marketplace.</p></div>
+                <div class="exp-card"><h3>🎓 Asisten Riset & Pengembang – Smart Village Merah Putih</h3><div style="color:#1e5f6e; margin:8px 0;">Telkom University • Agustus 2024 - Agustus 2025</div><p>Mengembangkan modul Marketplace Produk Desa & Sistem Keuangan Cerdas Desa menggunakan Laravel & MySQL. Proyek meraih Hak Kekayaan Intelektual (HKI) dengan metode Scrum.</p></div>
+                <div class="exp-card"><h3>👨‍💻 Engineering Staff (Magang) – PT Global Sahabat Otomasi</h3><div style="color:#1e5f6e; margin:8px 0;">Jakarta Pusat • Juni 2023 - Agustus 2023</div><p>Mengembangkan Website Edukatif & Transaksional Cloud Server dengan Laravel, integrasi Midtrans Payment Gateway, dan pengujian API menggunakan Postman. End-to-end development dari desain hingga debugging.</p></div>
+                <div class="exp-card"><h3>📚 Pendidikan S1 Sistem Informasi</h3><div style="color:#1e5f6e; margin:8px 0;">Telkom University Surabaya (2021-2025)</div><p>Fokus pada pemrograman, analisis sistem, manajemen database. Aktif dalam organisasi kampus dan proyek pengembangan aplikasi.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Proyek Unggulan</h2>
+            <div class="projects-grid">
+                <!-- AddCloud Desktop - tidak punya link (masih develop) -->
+                <div class="project-card"><div class="project-img"><i class="fas fa-cloud-upload-alt"></i></div><div class="project-info"><h3>AddCloud Desktop (Windows)</h3><p>Aplikasi desktop wrapper untuk ownCloud/Nextcloud menggunakan CefSharp (embedded browser). Memungkinkan akses, manajemen, dan upload file ke cloud server dengan antarmuka terintegrasi. (Masih dalam tahap pengembangan)</p><div class="project-tech"><span class="tech-tag">C#</span><span class="tech-tag">CefSharp</span><span class="tech-tag">WinForms/WPF</span><span class="tech-tag">ownCloud API</span></div><span class="project-link" style="cursor:default; opacity:0.6;">🚧 Dalam Pengembangan <i class="fas fa-code-branch"></i></span></div></div>
+
+                <!-- Berkah Solusi Mandiri - punya link berkahsolusi.id -->
+                <div class="project-card"><div class="project-img"><i class="fas fa-industry"></i></div><div class="project-info"><h3>Berkah Solusi Mandiri</h3><p>Website company profile & industrial automation platform untuk distributor HIKROBOT. Mencakup landing page automation, SEO industri, optimasi mobile, serta integrasi konten Smart Warehouse & Machine Vision.</p><div class="project-tech"><span class="tech-tag">Laravel/PHP</span><span class="tech-tag">SEO On-page</span><span class="tech-tag">Schema Markup</span><span class="tech-tag">Mobile Optimization</span></div><a href="https://berkahsolusi.id" target="_blank" class="project-link">berkahsolusi.id <i class="fas fa-external-link-alt"></i></a></div></div>
+
+                <!-- AddCloud Android - tidak punya link (masih develop) -->
+                <div class="project-card"><div class="project-img"><i class="fab fa-android"></i></div><div class="project-info"><h3>AddCloud Android</h3><p>Web browser dengan kemampuan download file via DownloadManager, penyimpanan riwayat URL menggunakan Room Database, upload dari WebView, Foreground Service, dan Picture-in-Picture mode. (Masih dalam tahap pengembangan)</p><div class="project-tech"><span class="tech-tag">Android WebView</span><span class="tech-tag">Room DB</span><span class="tech-tag">Foreground Service</span><span class="tech-tag">PiP</span></div><span class="project-link" style="cursor:default; opacity:0.6;">🚧 Dalam Pengembangan <i class="fas fa-code-branch"></i></span></div></div>
+
+                <!-- RetailIQ -->
+                <div class="project-card"><div class="project-img"><i class="fas fa-store"></i></div><div class="project-info"><h3>RetailIQ - Manajemen Toko Retail</h3><p>Aplikasi Laravel untuk mengelola inventaris, keuangan real-time, dan laporan barang masuk/keluar dengan pie chart analisis keuangan.</p><div class="project-tech"><span class="tech-tag">PHP</span><span class="tech-tag">Laravel</span><span class="tech-tag">MySQL</span></div><span class="project-link" style="cursor:default; opacity:0.6;">Preview proyek <i class="fas fa-image"></i></span></div></div>
+
+                <!-- AmHealth Mobile -->
+                <div class="project-card"><div class="project-img"><i class="fas fa-mobile-alt"></i></div><div class="project-info"><h3>AmHealth - Booking Dokter</h3><p>Mobile app untuk booking dokter di Klinik Azka Medika menggunakan React Native & Android Studio. Fitur jadwal & riwayat appointment.</p><div class="project-tech"><span class="tech-tag">React Native</span><span class="tech-tag">Android Studio</span></div><span class="project-link" style="cursor:default; opacity:0.6;">Preview proyek <i class="fas fa-image"></i></span></div></div>
+
+                <!-- Smart Village HKI -->
+                <div class="project-card"><div class="project-img"><i class="fas fa-village"></i></div><div class="project-info"><h3>Smart Village Merah Putih (HKI)</h3><p>Sistem digitalisasi desa dengan marketplace produk UMKM dan sistem keuangan cerdas desa. Meraih Hak Kekayaan Intelektual.</p><div class="project-tech"><span class="tech-tag">Laravel</span><span class="tech-tag">MySQL</span><span class="tech-tag">Scrum</span></div><span class="project-link" style="cursor:default; opacity:0.6;">Preview proyek <i class="fas fa-image"></i></span></div></div>
+
+                <!-- Cloud Server Edu & Transaksi -->
+                <div class="project-card"><div class="project-img"><i class="fas fa-cloud"></i></div><div class="project-info"><h3>Cloud Server Edu & Transaksi</h3><p>Platform edukasi cloud server + sistem transaksi digital. Integrasi Midtrans Gateway, manajemen konten & tutorial cloud.</p><div class="project-tech"><span class="tech-tag">Laravel</span><span class="tech-tag">Midtrans</span><span class="tech-tag">Postman</span></div><span class="project-link" style="cursor:default; opacity:0.6;">Preview proyek <i class="fas fa-image"></i></span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Slider Section -->
+    <section class="cert-slider-section">
+        <div class="container">
+            <h2 class="section-title">Sertifikasi & Penghargaan</h2>
+            <div class="slider-container">
+                <div class="slider-btn slider-btn-left" id="sliderLeft">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slider-wrapper" id="certSliderWrapper">
+                    <div class="cert-slider" id="certSlider">
+                        <!-- Sertifikat 1 - HKI Smart Village -->
+                        <div class="cert-card">
+                            <div class="cert-image">
+                                <div class="cert-placeholder">
+                                    <i class="fas fa-award"></i>
+                                    <span>HKI - Smart Village Merah Putih</span>
+                                </div>
+                            </div>
+                            <div class="cert-info">
+                                <h4>HKI - Smart Village</h4>
+                                <p>Hak Kekayaan Intelektual</p>
+                            </div>
+                        </div>
+                        <!-- Sertifikat 2 - Azure Data Fundamentals -->
+                        <div class="cert-card">
+                            <div class="cert-image">
+                                <div class="cert-placeholder">
+                                    <i class="fab fa-microsoft"></i>
+                                    <span>Microsoft Azure Data Fundamentals</span>
+                                </div>
+                            </div>
+                            <div class="cert-info">
+                                <h4>Azure Data Fundamentals</h4>
+                                <p>Microsoft Certified</p>
+                            </div>
+                        </div>
+                        <!-- Sertifikat 3 - Google Analytics -->
+                        <div class="cert-card">
+                            <div class="cert-image">
+                                <div class="cert-placeholder">
+                                    <i class="fab fa-google"></i>
+                                    <span>Google Analytics Individual Qualification</span>
+                                </div>
+                            </div>
+                            <div class="cert-info">
+                                <h4>Google Analytics</h4>
+                                <p>Google Certified</p>
+                            </div>
+                        </div>
+                        <!-- Sertifikat 4 - Power BI -->
+                        <div class="cert-card">
+                            <div class="cert-image">
+                                <div class="cert-placeholder">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <span>Power BI Data Analyst</span>
+                                </div>
+                            </div>
+                            <div class="cert-info">
+                                <h4>Power BI Certified</h4>
+                                <p>Microsoft Data Analyst</p>
+                            </div>
+                        </div>
+                        <!-- Sertifikat 5 - Machine Learning Basics -->
+                        <div class="cert-card">
+                            <div class="cert-image">
+                                <div class="cert-placeholder">
+                                    <i class="fas fa-brain"></i>
+                                    <span>Machine Learning Fundamentals</span>
+                                </div>
+                            </div>
+                            <div class="cert-info">
+                                <h4>Machine Learning Basics</h4>
+                                <p>AI & Data Science</p>
+                            </div>
+                        </div>
+                        <!-- Sertifikat 6 - Executive Diploma Data Analytics -->
+                        <div class="cert-card">
+                            <div class="cert-image">
+                                <div class="cert-placeholder">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Executive Diploma in Data Analytics</span>
+                                </div>
+                            </div>
+                            <div class="cert-info">
+                                <h4>Executive Diploma</h4>
+                                <p>Data Analytics</p>
+                            </div>
+                        </div>
+                        <!-- Sertifikat 7 - SEO Specialist -->
+                        <div class="cert-card">
+                            <div class="cert-image">
+                                <div class="cert-placeholder">
+                                    <i class="fas fa-search"></i>
+                                    <span>SEO Industrial Specialist</span>
+                                </div>
+                            </div>
+                            <div class="cert-info">
+                                <h4>SEO Specialist</h4>
+                                <p>Industrial & Technical SEO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-btn slider-btn-right" id="sliderRight">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-section">
+                <h2 style="font-size: 2rem;">Hubungi Saya</h2>
+                <p style="margin-top: 12px;">Tersedia untuk kolaborasi, proyek freelance, atau diskusi teknologi web, desktop, dan mobile.</p>
+                <div class="contact-flex">
+                    <div class="contact-item"><i class="fas fa-envelope"></i> putramaajid93@gmail.com</div>
+                    <div class="contact-item"><i class="fab fa-whatsapp"></i> 0811-9642-003</div>
+                    <div class="contact-item"><i class="fab fa-github"></i> github.com/rafimaajid</div>
+                    <div class="contact-item"><i class="fab fa-linkedin"></i> Putra Rafi Naufal Maajid</div>
+                    <div class="contact-item"><i class="fab fa-instagram"></i> @putra_maajid</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/628119642003" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://github.com/rafimaajid" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/putra-rafi-naufal-maajid" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/putra_maajid" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/628119642003" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://addcloud.id" target="_blank" aria-label="AddCloud"><i class="fas fa-cloud"></i></a>
+            </div>
+            <div class="footer-copyright">
+                <p>© 2025 Putra Rafi Naufal Maajid — Fullstack, Desktop, & Mobile Developer</p>
+                <p style="margin-top: 8px; font-size: 0.75rem;">Tangerang, Indonesia</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Slider functionality
+    const sliderWrapper = document.getElementById('certSliderWrapper');
+    const sliderLeft = document.getElementById('sliderLeft');
+    const sliderRight = document.getElementById('sliderRight');
+
+    if (sliderWrapper && sliderLeft && sliderRight) {
+        const scrollAmount = 320; // Kurang lebih 1 card + gap
+
+        sliderLeft.addEventListener('click', () => {
+            sliderWrapper.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        sliderRight.addEventListener('click', () => {
+            sliderWrapper.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Smooth scroll & active nav
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollY = window.scrollY + 100;
+        sections.forEach(section => {
+            const top = section.offsetTop;
+            const height = section.offsetHeight;
+            if(scrollY >= top && scrollY < top + height) current = section.getAttribute('id');
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href').substring(1);
+            if(href === current) link.classList.add('active');
+        });
+    });
+    document.querySelectorAll('.nav-links a, .btn-primary[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if(targetId && targetId !== '#' && targetId.startsWith('#')) {
+                e.preventDefault();
+                document.querySelector(targetId)?.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
