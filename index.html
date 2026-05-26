@@ -419,7 +419,7 @@
             cursor: default;
         }
 
-        /* Certificate Slider Styles */
+        /* Certificate Slider Styles - DIPERBESAR */
         .cert-slider-section {
             background: #f7fafc;
             overflow: hidden;
@@ -427,9 +427,9 @@
 
         .slider-container {
             position: relative;
-            max-width: 1100px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 50px;
         }
 
         .slider-wrapper {
@@ -438,11 +438,11 @@
             scrollbar-width: thin;
             -webkit-overflow-scrolling: touch;
             scrollbar-color: #1e5f6e #e0e8e5;
-            border-radius: 24px;
+            border-radius: 28px;
         }
 
         .slider-wrapper::-webkit-scrollbar {
-            height: 8px;
+            height: 10px;
         }
 
         .slider-wrapper::-webkit-scrollbar-track {
@@ -457,41 +457,52 @@
 
         .cert-slider {
             display: flex;
-            gap: 24px;
-            padding: 20px 8px 30px 8px;
+            gap: 32px;
+            padding: 20px 12px 40px 12px;
         }
 
+        /* Card lebih besar */
         .cert-card {
-            flex: 0 0 280px;
+            flex: 0 0 380px;
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1);
             transition: 0.3s;
             border: 1px solid #eef2f0;
         }
 
         .cert-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.12);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px -15px rgba(0,0,0,0.15);
         }
 
+        /* Area gambar sertifikat - lebih tinggi */
         .cert-image {
-            height: 200px;
-            background: linear-gradient(145deg, #eef2ff, #e0e8f5);
+            height: 280px;
+            background: #f5f7fb;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+            padding: 12px;
         }
 
         .cert-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            background: white;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
         }
 
+        .cert-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Fallback placeholder */
         .cert-image .cert-placeholder {
             display: flex;
             flex-direction: column;
@@ -502,57 +513,62 @@
         }
 
         .cert-placeholder i {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #1e5f6e;
             margin-bottom: 12px;
         }
 
         .cert-placeholder span {
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             color: #4a5562;
         }
 
+        /* Info teks lebih jelas */
         .cert-info {
-            padding: 16px;
+            padding: 20px;
             text-align: center;
+            background: white;
+            border-top: 1px solid #f0f2f5;
         }
 
         .cert-info h4 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 6px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 8px;
             color: #0a1927;
         }
 
         .cert-info p {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: #1e5f6e;
             font-weight: 500;
+            line-height: 1.4;
         }
 
         .slider-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             background: white;
-            border: 1px solid #eef2f0;
+            border: 1px solid #e2e8f0;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             color: #1e5f6e;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             transition: 0.2s;
             z-index: 10;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .slider-btn:hover {
             background: #1e5f6e;
             color: white;
+            border-color: #1e5f6e;
         }
 
         .slider-btn-left {
@@ -641,12 +657,15 @@
                 padding: 0 20px;
             }
             .cert-card {
-                flex: 0 0 240px;
+                flex: 0 0 300px;
+            }
+            .cert-image {
+                height: 220px;
             }
             .slider-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 0.9rem;
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
             }
             .profile-photo {
                 max-width: 260px;
@@ -684,7 +703,6 @@
                 </div>
             </div>
             <div class="hero-image">
-                <!-- GANTI: masukkan file foto Anda dengan mengganti src="foto_anda.jpg" -->
                 <img src="asset/img/profile_putra.png" alt="Putra Rafi Naufal Maajid" class="profile-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 <div class="photo-placeholder" style="display: none;">
                     <i class="fas fa-user-circle"></i>
@@ -750,31 +768,18 @@
         <div class="container">
             <h2 class="section-title">Proyek Unggulan</h2>
             <div class="projects-grid">
-                <!-- AddCloud Desktop - tidak punya link (masih develop) -->
-                <div class="project-card"><div class="project-img"><i class="fas fa-cloud-upload-alt"></i></div><div class="project-info"><h3>AddCloud Desktop (Windows)</h3><p>Aplikasi desktop wrapper untuk ownCloud/Nextcloud menggunakan CefSharp (embedded browser). Memungkinkan akses, manajemen, dan upload file ke cloud server dengan antarmuka terintegrasi. (Masih dalam tahap pengembangan)</p><div class="project-tech"><span class="tech-tag">C#</span><span class="tech-tag">CefSharp</span><span class="tech-tag">WinForms/WPF</span><span class="tech-tag">ownCloud API</span></div><span class="project-link" style="cursor:default; opacity:0.6;">🚧 Dalam Pengembangan <i class="fas fa-code-branch"></i></span></div></div>
-
-                <!-- Berkah Solusi Mandiri - punya link berkahsolusi.id -->
-                <div class="project-card"><div class="project-img"><i class="fas fa-industry"></i></div><div class="project-info"><h3>Berkah Solusi Mandiri</h3><p>Website company profile & industrial automation platform untuk distributor HIKROBOT. Mencakup landing page automation, SEO industri, optimasi mobile, serta integrasi konten Smart Warehouse & Machine Vision.</p><div class="project-tech"><span class="tech-tag">Laravel/PHP</span><span class="tech-tag">SEO On-page</span><span class="tech-tag">Schema Markup</span><span class="tech-tag">Mobile Optimization</span></div><a href="https://berkahsolusi.id" target="_blank" class="project-link">berkahsolusi.id <i class="fas fa-external-link-alt"></i></a></div></div>
-
-                <!-- AddCloud Android - tidak punya link (masih develop) -->
-                <div class="project-card"><div class="project-img"><i class="fab fa-android"></i></div><div class="project-info"><h3>AddCloud Android</h3><p>Web browser dengan kemampuan download file via DownloadManager, penyimpanan riwayat URL menggunakan Room Database, upload dari WebView, Foreground Service, dan Picture-in-Picture mode. (Masih dalam tahap pengembangan)</p><div class="project-tech"><span class="tech-tag">Android WebView</span><span class="tech-tag">Room DB</span><span class="tech-tag">Foreground Service</span><span class="tech-tag">PiP</span></div><span class="project-link" style="cursor:default; opacity:0.6;">🚧 Dalam Pengembangan <i class="fas fa-code-branch"></i></span></div></div>
-
-                <!-- RetailIQ -->
-                <div class="project-card"><div class="project-img"><i class="fas fa-store"></i></div><div class="project-info"><h3>RetailIQ - Manajemen Toko Retail</h3><p>Aplikasi Laravel untuk mengelola inventaris, keuangan real-time, dan laporan barang masuk/keluar dengan pie chart analisis keuangan.</p><div class="project-tech"><span class="tech-tag">PHP</span><span class="tech-tag">Laravel</span><span class="tech-tag">MySQL</span></div><span class="project-link" style="cursor:default; opacity:0.6;">Preview proyek <i class="fas fa-image"></i></span></div></div>
-
-                <!-- AmHealth Mobile -->
-                <div class="project-card"><div class="project-img"><i class="fas fa-mobile-alt"></i></div><div class="project-info"><h3>AmHealth - Booking Dokter</h3><p>Mobile app untuk booking dokter di Klinik Azka Medika menggunakan React Native & Android Studio. Fitur jadwal & riwayat appointment.</p><div class="project-tech"><span class="tech-tag">React Native</span><span class="tech-tag">Android Studio</span></div><span class="project-link" style="cursor:default; opacity:0.6;">Preview proyek <i class="fas fa-image"></i></span></div></div>
-
-                <!-- Smart Village HKI -->
-                <div class="project-card"><div class="project-img"><i class="fas fa-village"></i></div><div class="project-info"><h3>Smart Village Merah Putih (HKI)</h3><p>Sistem digitalisasi desa dengan marketplace produk UMKM dan sistem keuangan cerdas desa. Meraih Hak Kekayaan Intelektual.</p><div class="project-tech"><span class="tech-tag">Laravel</span><span class="tech-tag">MySQL</span><span class="tech-tag">Scrum</span></div><span class="project-link" style="cursor:default; opacity:0.6;">Preview proyek <i class="fas fa-image"></i></span></div></div>
-
-                <!-- Cloud Server Edu & Transaksi -->
-                <div class="project-card"><div class="project-img"><i class="fas fa-cloud"></i></div><div class="project-info"><h3>Cloud Server Edu & Transaksi</h3><p>Platform edukasi cloud server + sistem transaksi digital. Integrasi Midtrans Gateway, manajemen konten & tutorial cloud.</p><div class="project-tech"><span class="tech-tag">Laravel</span><span class="tech-tag">Midtrans</span><span class="tech-tag">Postman</span></div><span class="project-link" style="cursor:default; opacity:0.6;">Preview proyek <i class="fas fa-image"></i></span></div></div>
+                <div class="project-card"><div class="project-img"><i class="fas fa-cloud-upload-alt"></i></div><div class="project-info"><h3>AddCloud Desktop (Windows)</h3><p>Aplikasi desktop wrapper untuk ownCloud/Nextcloud menggunakan CefSharp. (Masih dalam tahap pengembangan)</p><div class="project-tech"><span class="tech-tag">C#</span><span class="tech-tag">CefSharp</span><span class="tech-tag">WinForms/WPF</span></div><span class="project-link" style="cursor:default; opacity:0.6;">🚧 Dalam Pengembangan</span></div></div>
+                <div class="project-card"><div class="project-img"><i class="fas fa-industry"></i></div><div class="project-info"><h3>Berkah Solusi Mandiri</h3><p>Website company profile & industrial automation platform untuk distributor HIKROBOT.</p><div class="project-tech"><span class="tech-tag">Laravel/PHP</span><span class="tech-tag">SEO On-page</span></div><a href="https://berkahsolusi.id" target="_blank" class="project-link">berkahsolusi.id <i class="fas fa-external-link-alt"></i></a></div></div>
+                <div class="project-card"><div class="project-img"><i class="fab fa-android"></i></div><div class="project-info"><h3>AddCloud Android</h3><p>Web browser dengan download manager, Room Database, Foreground Service, dan PiP. (Masih dalam tahap pengembangan)</p><div class="project-tech"><span class="tech-tag">Android WebView</span><span class="tech-tag">Room DB</span></div><span class="project-link" style="cursor:default; opacity:0.6;">🚧 Dalam Pengembangan</span></div></div>
+                <div class="project-card"><div class="project-img"><i class="fas fa-store"></i></div><div class="project-info"><h3>RetailIQ - Manajemen Toko Retail</h3><p>Aplikasi Laravel untuk mengelola inventaris dan keuangan real-time.</p><div class="project-tech"><span class="tech-tag">PHP</span><span class="tech-tag">Laravel</span><span class="tech-tag">MySQL</span></div><span class="project-link" style="cursor:default; opacity:0.6;">Preview proyek</span></div></div>
+                <div class="project-card"><div class="project-img"><i class="fas fa-mobile-alt"></i></div><div class="project-info"><h3>AmHealth - Booking Dokter</h3><p>Mobile app booking dokter menggunakan React Native.</p><div class="project-tech"><span class="tech-tag">React Native</span><span class="tech-tag">Android Studio</span></div><span class="project-link" style="cursor:default; opacity:0.6;">Preview proyek</span></div></div>
+                <div class="project-card"><div class="project-img"><i class="fas fa-village"></i></div><div class="project-info"><h3>Smart Village Merah Putih (HKI)</h3><p>Sistem digitalisasi desa dengan marketplace dan keuangan cerdas desa. Meraih HKI.</p><div class="project-tech"><span class="tech-tag">Laravel</span><span class="tech-tag">MySQL</span><span class="tech-tag">Scrum</span></div><span class="project-link" style="cursor:default; opacity:0.6;">Preview proyek</span></div></div>
+                <div class="project-card"><div class="project-img"><i class="fas fa-cloud"></i></div><div class="project-info"><h3>Cloud Server Edu & Transaksi</h3><p>Platform edukasi cloud server + sistem transaksi digital.</p><div class="project-tech"><span class="tech-tag">Laravel</span><span class="tech-tag">Midtrans</span><span class="tech-tag">Postman</span></div><span class="project-link" style="cursor:default; opacity:0.6;">Preview proyek</span></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Certificate Slider Section -->
+    <!-- Certificate Slider Section - DIPERBESAR & JELAS -->
     <section class="cert-slider-section">
         <div class="container">
             <h2 class="section-title">Sertifikasi & Penghargaan</h2>
@@ -804,7 +809,7 @@
                                 <p>Microsoft Certified</p>
                             </div>
                         </div>
-                        <!-- Sertifikat 3 - Google Analytics -->
+                        <!-- Sertifikat 3 - Microsoft Excel -->
                         <div class="cert-card">
                             <div class="cert-image">
                                 <img src="asset/img/sertifikatexcel.jpg" alt="Microsoft Excel">
@@ -844,11 +849,11 @@
                                 <p>Data Analytics</p>
                             </div>
                         </div>
-                        <!-- Sertifikat 7 - SEO Specialist -->
+                        <!-- Sertifikat 7 - IT Program MSU -->
                         <div class="cert-card">
-                        <div class="cert-image">
-                            <img src="asset/img/sertifikatmsu.jpg" alt="IT Program MSU">
-                        </div>
+                            <div class="cert-image">
+                                <img src="asset/img/sertifikatmsu.jpg" alt="IT Program MSU">
+                            </div>
                             <div class="cert-info">
                                 <h4>IT Program MSU</h4>
                                 <p>International Foundation Information Technology Program – Management & Science University (MSU)</p>
@@ -911,7 +916,7 @@
     const sliderRight = document.getElementById('sliderRight');
 
     if (sliderWrapper && sliderLeft && sliderRight) {
-        const scrollAmount = 320; // Kurang lebih 1 card + gap
+        const scrollAmount = 412; // Lebar card 380 + gap 32
 
         sliderLeft.addEventListener('click', () => {
             sliderWrapper.scrollBy({
