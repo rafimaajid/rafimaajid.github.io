@@ -181,14 +181,44 @@
         .hero-image {
             flex: 0.9;
             text-align: center;
-            background: #e9f3f0;
+            background: linear-gradient(145deg, #e9f3f0, #d4e4e0);
             border-radius: 32% 68% 38% 62% / 58% 44% 56% 42%;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-image i {
-            font-size: 7rem;
+        /* Foto profil styling */
+        .profile-photo {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 30% 70% 50% 50% / 30% 40% 60% 70%;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.02);
+        }
+
+        /* Fallback jika gambar belum diupload */
+        .photo-placeholder {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 1 / 1;
+            background: linear-gradient(135deg, #c0ddd7, #a8ccc4);
+            border-radius: 30% 70% 50% 50% / 30% 40% 60% 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
             color: #1e5f6e;
+            margin: 0 auto;
         }
 
         section {
@@ -618,6 +648,9 @@
                 height: 32px;
                 font-size: 0.9rem;
             }
+            .profile-photo {
+                max-width: 260px;
+            }
         }
     </style>
 </head>
@@ -638,7 +671,7 @@
 </nav>
 
 <main>
-    <!-- Hero Section -->
+    <!-- Hero Section dengan Foto -->
     <section id="home" class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
@@ -651,7 +684,11 @@
                 </div>
             </div>
             <div class="hero-image">
-                <i class="fas fa-laptop-code"></i>
+                <!-- GANTI: masukkan file foto Anda dengan mengganti src="foto_anda.jpg" -->
+                <img src="profile_putra.png" alt="Putra Rafi Naufal Maajid" class="profile-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="photo-placeholder" style="display: none;">
+                    <i class="fas fa-user-circle"></i>
+                </div>
             </div>
         </div>
     </section>
@@ -750,10 +787,7 @@
                         <!-- Sertifikat 1 - HKI Smart Village -->
                         <div class="cert-card">
                             <div class="cert-image">
-                                <div class="cert-placeholder">
-                                    <i class="fas fa-award"></i>
-                                    <span>HKI - Smart Village Merah Putih</span>
-                                </div>
+                                <img src="surathki.jpg" alt="HKI Smart Village">
                             </div>
                             <div class="cert-info">
                                 <h4>HKI - Smart Village</h4>
@@ -763,10 +797,7 @@
                         <!-- Sertifikat 2 - Azure Data Fundamentals -->
                         <div class="cert-card">
                             <div class="cert-image">
-                                <div class="cert-placeholder">
-                                    <i class="fab fa-microsoft"></i>
-                                    <span>Microsoft Azure Data Fundamentals</span>
-                                </div>
+                                <img src="sertfikatazuredata.jpg" alt="Azure Data Fundamentals">
                             </div>
                             <div class="cert-info">
                                 <h4>Azure Data Fundamentals</h4>
@@ -776,23 +807,17 @@
                         <!-- Sertifikat 3 - Google Analytics -->
                         <div class="cert-card">
                             <div class="cert-image">
-                                <div class="cert-placeholder">
-                                    <i class="fab fa-google"></i>
-                                    <span>Google Analytics Individual Qualification</span>
-                                </div>
+                                <img src="sertifikatexcel.jpg" alt="Microsoft Excel">
                             </div>
                             <div class="cert-info">
-                                <h4>Google Analytics</h4>
-                                <p>Google Certified</p>
+                                <h4>Microsoft Excel</h4>
+                                <p>Microsoft Excel Data</p>
                             </div>
                         </div>
                         <!-- Sertifikat 4 - Power BI -->
                         <div class="cert-card">
                             <div class="cert-image">
-                                <div class="cert-placeholder">
-                                    <i class="fas fa-chart-pie"></i>
-                                    <span>Power BI Data Analyst</span>
-                                </div>
+                                <img src="sertifikatpowerbi.jpg" alt="Power BI">
                             </div>
                             <div class="cert-info">
                                 <h4>Power BI Certified</h4>
@@ -802,10 +827,7 @@
                         <!-- Sertifikat 5 - Machine Learning Basics -->
                         <div class="cert-card">
                             <div class="cert-image">
-                                <div class="cert-placeholder">
-                                    <i class="fas fa-brain"></i>
-                                    <span>Machine Learning Fundamentals</span>
-                                </div>
+                                <img src="sertifikatmachinelearning.jpg" alt="Machine Learning Basics">
                             </div>
                             <div class="cert-info">
                                 <h4>Machine Learning Basics</h4>
@@ -815,10 +837,7 @@
                         <!-- Sertifikat 6 - Executive Diploma Data Analytics -->
                         <div class="cert-card">
                             <div class="cert-image">
-                                <div class="cert-placeholder">
-                                    <i class="fas fa-chart-line"></i>
-                                    <span>Executive Diploma in Data Analytics</span>
-                                </div>
+                                <img src="sertifikatdataanalytic.jpg" alt="Executive Diploma">
                             </div>
                             <div class="cert-info">
                                 <h4>Executive Diploma</h4>
@@ -827,15 +846,12 @@
                         </div>
                         <!-- Sertifikat 7 - SEO Specialist -->
                         <div class="cert-card">
-                            <div class="cert-image">
-                                <div class="cert-placeholder">
-                                    <i class="fas fa-search"></i>
-                                    <span>SEO Industrial Specialist</span>
-                                </div>
-                            </div>
+                        <div class="cert-image">
+                            <img src="sertifikatmsu.jpg" alt="IT Program MSU">
+                        </div>
                             <div class="cert-info">
-                                <h4>SEO Specialist</h4>
-                                <p>Industrial & Technical SEO</p>
+                                <h4>IT Program MSU</h4>
+                                <p>International Foundation Information Technology Program – Management & Science University (MSU)</p>
                             </div>
                         </div>
                     </div>
